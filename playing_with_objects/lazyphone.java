@@ -1,11 +1,9 @@
 package playing_with_objects;
 
 public class lazyphone {
-sim  phone;
+    sim phone;
 
- public void newSim()
- {
-	lazyphone s=new lazyphone();
-	
- }
+    public void newSim() {
+        lazyphone s = new lazyphone();
+    }
 }
