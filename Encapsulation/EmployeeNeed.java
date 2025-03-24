@@ -1,4 +1,4 @@
-package OOPs;
+package Encapsulation;
 
 public class EmployeeNeed {
 	 public static void main(String[] args) {
