@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class driver {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        student stu = new student("Aniket", "anipaul@gamil.com");
+        System.out.println("Enter Name and email");
+        student stu = new student(sc.next(), sc.next());
         subject sub1 = new subject("Java", 4);
         subject sub2 = new subject("C++", 3);
         subject sub3 = new subject("Python", 2);
