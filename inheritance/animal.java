@@ -2,9 +2,9 @@ package inheritance;
 
 public class animal {
 	int a;
-	void methodofchild2()
+	static
 	{
-		System.out.println("method of child");
+		System.out.println("method of parent");
 	}
 	static int y;
 	static void methodofchild3()

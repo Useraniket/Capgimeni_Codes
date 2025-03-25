@@ -2,7 +2,7 @@ package inheritance;
 
 public class dog extends animal {
 	int b;
-	void methodofchild1()
+	static
 	{
 		System.out.println("method of child");
 	}
