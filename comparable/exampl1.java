@@ -22,7 +22,7 @@ public class exampl1 implements Comparable{
 	public int compareTo(Object o)
 	{
 		//---------1rst way---------
-//		exampl1 e=(exampl1)o;
+//		exampl1 e=(exampl1)o; //downcasting
 //		if(this.rollno<e.rollno)//e1<e2
 //		{
 //			return-1;
@@ -41,6 +41,8 @@ public class exampl1 implements Comparable{
 		
 		//to return the double pecentage we need to type cast 
 		return Double.compare(this.percentage, e.percentage);
+		
+		
 		
 	}
 }
