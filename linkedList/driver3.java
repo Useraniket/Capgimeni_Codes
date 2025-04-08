@@ -1,8 +1,8 @@
 package linkedList;
 
-public class listDriver {
+public class driver3 {
     public static void main(String[] args) {
-        circularLL list = new circularLL();
+        dLL list = new dLL();
 
         // Append elements
         list.append(10);
