@@ -158,6 +158,21 @@ public int getSize()
 	 head=prev;
 	return true;
 }
+ public int search(int value)
+ {
+	 Node current=head;
+	 int index=0;
+	 while(current!=null)
+	 {
+		 if(current.value==value)
+		 {
+			 return index;
+		 }
+		 index++;
+		 current=current.next;
+	 }
+	return -1;
+ }
  public  boolean prepend(int value)//preponed at the first position
  { 
 	 Node node=new Node(value);
@@ -179,11 +194,11 @@ public int getSize()
 	  StringBuffer sb=new StringBuffer("[");
 	  while(temp!=null)
 	  {
-		  sb.append(temp==head?temp.value:temp.value+",");
+		  sb.append(temp==tail?temp.value:temp.value+",");
 		  temp=temp.next;
 	  }
 	  sb.append("]");
-	  System.out.println(sb);
+	  System.out.println(sb);        
  }
  public boolean append(int value)//to append values in the ll
  {
@@ -204,5 +219,17 @@ public int getSize()
 private boolean isemppty() {//to check wheather the ll is empty or not
 	return head==null&& tail==null;
 }
-
+boolean update(int oldValue,int newValue)
+{
+	Node current=head;
+	while(head!=null)
+	{
+		if(current.value==oldValue)
+		{
+			current.value=newValue;
+			return true;
+		}
+	}
+	return false;
+}
 }
