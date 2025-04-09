@@ -2,7 +2,7 @@ package linkedList;
 
 public class listDriver {
     public static void main(String[] args) {
-        circularLL list = new circularLL();
+        singlell1 list = new singlell1();
 
         // Append elements
         list.append(10);
@@ -32,7 +32,7 @@ public class listDriver {
         list.display();
 
         // Delete last occurrence of a specific element
-        list.deletelast(50);
+        list.delete(50);
         System.out.println("\nList after deleting last occurrence of 50:");
         list.display();
 
