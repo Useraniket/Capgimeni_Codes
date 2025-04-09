@@ -16,6 +16,14 @@ public class usingArray {
 		this(10);
 	}
 
+	public boolean isFull() {
+		return pointer == capacity;
+	}
+
+	public int size() {
+		return pointer;
+	}
+
 	public boolean enqueue(int value) {
 		if (pointer == capacity) {
 			data = Arrays.copyOf(data, data.length * 2);
