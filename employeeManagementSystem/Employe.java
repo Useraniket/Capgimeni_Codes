@@ -1,5 +1,7 @@
 package employeeManagementSystem;
 
+import java.util.Objects;
+
 public class Employe {
 	private int id;
 	private String name;
@@ -11,6 +13,7 @@ public class Employe {
 		this.salary = salary;
 	}
 
+	// Getters and setters
 	public double getSalary() {
 		return salary;
 	}
@@ -35,23 +38,26 @@ public class Employe {
 		this.name = name;
 	}
 
+	// toString override
 	@Override
 	public String toString() {
-		return "[" + id + " " + name + " " + salary + "]";
-	}
-	@Override
-	public boolean equals(Object obj) {
-	    Employe employee = (Employe) obj;
-	    return id == employee.id &&
-	           Double.compare(employee.salary, salary) == 0 &&
-	           name.equalsIgnoreCase(employee.name); 
+		return String.format("Employee [ID: %d, Name: %s, Salary: %.2f]", id, name, salary);
 	}
 
+	// equals override
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (!(obj instanceof Employe)) return false;
+		Employe other = (Employe) obj;
+		return this.id == other.id &&
+			   Double.compare(this.salary, other.salary) == 0 &&
+			   this.name.equalsIgnoreCase(other.name);
+	}
+
+	// hashCode override
 	@Override
 	public int hashCode() {
-	    int result = Integer.hashCode(id);
-	    result = 31 * result + name.toLowerCase().hashCode();
-	    result = 31 * result + Double.hashCode(salary);
-	    return result;
+		return Objects.hash(id, name.toLowerCase(), salary);
 	}
 }
