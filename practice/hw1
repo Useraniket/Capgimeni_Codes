@@ -1,57 +1,85 @@
-package practice;
-
 import java.util.*;
 
-public class intersection {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+public class Solution {
 
-        System.out.println("Enter the size of the array1:");
-        int n = sc.nextInt();
-        int[] num1 = new int[n];
+    public static boolean canArrangeStudents(int numCases, List<int[]> cases) {
+        List<String> results = new ArrayList<>();
 
-        System.out.println("Enter the size of the array2:");
-        int m = sc.nextInt();
-        int[] num2 = new int[m];
+        for (int t = 0; t < numCases; t++) {
+            int[] boys = cases.get(t * 2);
+            int[] girls = cases.get(t * 2 + 1);
+            int n = boys.length;
 
-        System.out.println("Enter elements of array1:");
-        for (int i = 0; i < n; i++) {
-            num1[i] = sc.nextInt();
-        }
+            Arrays.sort(boys);
+            Arrays.sort(girls);
 
-        System.out.println("Enter elements of array2:");
-        for (int i = 0; i < m; i++) {
-            num2[i] = sc.nextInt();
-        }
+            boolean isPossible = isValidArrangement(boys, girls) || isValidArrangement(girls, boys);
 
-        Arrays.sort(num1);
-        Arrays.sort(num2);
-
-        int i = 0, j = 0;
-        int[] temp = new int[n+m];
-        int index = 0;
-
-        while (i < n && j < m) {
-            if (num1[i] == num2[j]) {
-    
-                if (index == 0 || temp[index - 1] != num1[i]) {
-                    temp[index++] = num1[i];
-                }
-                i++;
-                j++;
-            } else if (num1[i] < num2[j]) {
-                i++;
+            if (isPossible) {
+                results.add("YES");
             } else {
-                j++;
+                results.add("NO");
             }
         }
 
-        System.out.print("Intersection of arrays: ");
-        for (int k = 0; k < index; k++) {
-            System.out.print(temp[k] + " ");
+        for (String result : results) {
+            System.out.println(result);
         }
-        System.out.println();
 
+        return true;
+    }
+
+    public static boolean isValidArrangement(int[] boys, int[] girls) {
+        int n = boys.length;
+        int[] arranged = new int[2 * n];
+
+        int i = 0, j = 0, index = 0;
+        boolean turn = true;
+
+        while (i < n && j < n) {
+            if (turn) {
+                arranged[index++] = boys[i++];
+            } else {
+                arranged[index++] = girls[j++];
+            }
+            turn = !turn;
+        }
+
+        while (i < n) arranged[index++] = boys[i++];
+        while (j < n) arranged[index++] = girls[j++];
+
+        for (int k = 1; k < arranged.length; k++) {
+            if (arranged[k] < arranged[k - 1]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int numCases = sc.nextInt();
+
+        List<int[]> cases = new ArrayList<>();
+
+        for (int i = 0; i < numCases; i++) {
+            int n = sc.nextInt();
+            int[] boys = new int[n];
+            int[] girls = new int[n];
+
+            for (int j = 0; j < n; j++) {
+                boys[j] = sc.nextInt();
+            }
+            for (int j = 0; j < n; j++) {
+                girls[j] = sc.nextInt();
+            }
+
+            cases.add(boys);
+            cases.add(girls);
+        }
+
+        canArrangeStudents(numCases, cases);
         sc.close();
     }
 }
