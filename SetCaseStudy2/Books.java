@@ -2,7 +2,7 @@ package SetCaseStudy2;
 
 import java.util.Objects;
 
-public class Books implements Comparable<Books>{
+public class Books {
 	private int id;
 	private String title;
 	private double price;
@@ -53,9 +53,12 @@ public class Books implements Comparable<Books>{
 	public int hashCode() {
 		return Objects.hash(id, title, price);
 	}
-	@Override
-	public int compareTo(Books other) {
-		return Integer.compare(this.id, other.id); // natural ordering by ID
-	}
+
+//	@Override
+//	public int compareTo(Books other) {
+//		return Integer.compare(this.id, other.id); // natural ordering by ID
+//	}
 
 }
+
+
