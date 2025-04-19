@@ -25,7 +25,7 @@ public class driver {
 		// 👉 Use whichever comparator you like:
 		// Set<Books> st = new TreeSet<>(new SortById());
 		// Set<Books> st = new TreeSet<>(new SortByTitle());
-		Set<Books> st = new TreeSet<>(new SortByTitle());
+		PriorityQueue<Books> st = new PriorityQueue<>(new SortByTitle());
 
 		st.add(new Books(1, "Merchant of Venice", 560.0));
 		st.add(new Books(2, "Can We Be Strangers Again", 400.0));
